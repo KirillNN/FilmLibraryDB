@@ -18,17 +18,17 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
 
   @Override
   public void onCreate(SQLiteDatabase db) {
-
+    createMyDatabase(db, 0, DB_VERSION);
   }
 
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    updateMyDatabase(db, oldVersion, newVersion);
   }
 
   @Override
   public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    super.onDowngrade(db, oldVersion, newVersion);
+    updateMyDatabase(db, oldVersion, newVersion);
   }
 
   private void createMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -37,6 +37,10 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
         + "NAME TEXT, "
         + "DESCRIPTION TEXT);");
 
+    createGenreTable(db);
+  }
+
+  private void createGenreTable(SQLiteDatabase db) {
     insertGenre(db, contextDB.getString(R.string.action),
         contextDB.getString(R.string.action_desc));
 
@@ -79,6 +83,11 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
     genreValues.put("NAME", name);
     genreValues.put("DESCRIPTION", description);
     db.insert("GENRE", null, genreValues);
+  }
+
+  private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
+    db.execSQL("DROP TABLE GENRE");
+    createMyDatabase(db, oldVersion, newVersion);
   }
 
 }
