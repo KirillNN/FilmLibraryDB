@@ -1,14 +1,26 @@
 <resources>
   <string name="action">Боевик</string>
+  <string name="action_desc">Боевик</string>
   <string name="western">Вестерн</string>
+  <string name="western_desc">Вестерн</string>
   <string name="detective">Детектив</string>
+  <string name="detective_desc">Детектив</string>
   <string name="children">Детское кино</string>
+  <string name="children_desc">Детское кино</string>
   <string name="doc">Документальное кино</string>
+  <string name="doc_desc">Документальное кино</string>
   <string name="drama">Драма</string>
+  <string name="drama_desc">Драма</string>
   <string name="comedy">Комедия</string>
+  <string name="comedy_desc">Комедия</string>
   <string name="adventure">Приключение</string>
+  <string name="adventure_desc">Приключение</string>
   <string name="family">Семейное кино</string>
+  <string name="family_desc">Семейное кино</string>
   <string name="thriller">Триллер</string>
+  <string name="thriller_desc">Триллер</string>
   <string name="horror">Ужасы</string>
+  <string name="horror_desc">Ужасы</string>
   <string name="fantastic">Ужасы</string>
+  <string name="fantastic_desc">Ужасы</string>
 </resources>
