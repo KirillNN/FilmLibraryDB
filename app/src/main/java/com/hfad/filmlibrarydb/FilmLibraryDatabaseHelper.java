@@ -1,5 +1,6 @@
 package com.hfad.filmlibrarydb;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -34,10 +35,13 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
         + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "NAME TEXT, "
         + "DESCRIPTION TEXT);");
-//        + "BONUS TEXT, "
-//        + "TYPE INTEGER, "
-//        + "TYPE_BONUS INTEGER, "
-//        + "ORDER_QUANTITY INTEGER);");
+  }
+
+  private static void insertGenre(SQLiteDatabase db, String name, String description) {
+    ContentValues genreValues = new ContentValues();
+    genreValues.put("NAME", name);
+    genreValues.put("DESCRIPTION", description);
+    db.insert("GENRE", null, genreValues);
   }
 
 }
