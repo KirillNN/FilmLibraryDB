@@ -1,0 +1,14 @@
+<resources>
+  <string name="action">Боевик</string>
+  <string name="western">Вестерн</string>
+  <string name="detective">Детектив</string>
+  <string name="children">Детское кино</string>
+  <string name="doc">Документальное кино</string>
+  <string name="drama">Драма</string>
+  <string name="comedy">Комедия</string>
+  <string name="adventure">Приключение</string>
+  <string name="family">Семейное кино</string>
+  <string name="thriller">Триллер</string>
+  <string name="horror">Ужасы</string>
+  <string name="fantastic">Ужасы</string>
+</resources>
