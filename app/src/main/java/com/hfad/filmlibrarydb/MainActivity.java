@@ -10,7 +10,7 @@ public class MainActivity extends BaseActivity {
 
   private static final String TAG = "MainActivity";
 //  static ArrayList genres = new ArrayList();
-  static ArrayList<Genre> genres = new ArrayList<>();
+  static ArrayList<Item> genres = new ArrayList<>();
   String genreString01;
   String genreString02;
 
@@ -25,29 +25,33 @@ public class MainActivity extends BaseActivity {
   @Override
   protected void onStart() {
     super.onStart();
+    Log.d(TAG, "onStart");
     connectDBRead();
     if (isConnectedRead) {
-      Cursor cursor = db.query("GENRE",
-          new String[]{"NAME", "DESCRIPTION"},
-          null, null, null, null, null);
-
-      if (cursor.moveToFirst()) {
-        genreString01 = cursor.getString(0);
-        genreString02 = cursor.getString(1);
-//        genres.add(genreString01);
-        genres.add(new Genre(genreString01, genreString02));
-
-//        genre.add((cursor.getString(0)),(cursor.getString(1));
-      }
-      while (cursor.moveToNext()) {
-        genreString01 = cursor.getString(0);
-        genreString02 = cursor.getString(1);
-//        genres.add(genreString01);
-        genres.add(new Genre(genreString01, genreString02));
-      }
-      cursor.close();
+      fillingGenreList();
     }
     genres.size();
     db.close();
+  }
+  protected void fillingGenreList() {
+    Cursor cursor = db.query("GENRE",
+        new String[]{"NAME", "DESCRIPTION"},
+        null, null, null, null, null);
+
+    if (cursor.moveToFirst()) {
+      genreString01 = cursor.getString(0);
+      genreString02 = cursor.getString(1);
+//        genres.add(genreString01);
+      genres.add(new Item(genreString01, genreString02));
+
+//        genre.add((cursor.getString(0)),(cursor.getString(1));
+    }
+    while (cursor.moveToNext()) {
+      genreString01 = cursor.getString(0);
+      genreString02 = cursor.getString(1);
+//        genres.add(genreString01);
+      genres.add(new Item(genreString01, genreString02));
+    }
+    cursor.close();
   }
 }
