@@ -39,6 +39,8 @@ public class MainActivity extends BaseActivity {
         genreString02 = cursor.getString(1);
         new Genre(genreString01, genreString01);
       }
+      cursor.close();
     }
+    db.close();
   }
 }
