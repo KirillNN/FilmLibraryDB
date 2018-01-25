@@ -1,13 +1,16 @@
 package com.hfad.filmlibrarydb;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import java.util.ArrayList;
+
 
 public class MainActivity extends BaseActivity {
 
   private static final String TAG = "MainActivity";
-  ArrayList genre;
+  Genre[] genres;
+  String genreString01;
+  String genreString02;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,20 @@ public class MainActivity extends BaseActivity {
     super.onStart();
     connectDBRead();
     if (isConnectedRead) {
-
+      Cursor cursor = db.query("GENRE",
+          new String[]{"NAME", "DESCRIPTION"},
+          null, null, null, null, null);
+      if (cursor.moveToFirst()) {
+        genreString01 = cursor.getString(0);
+        genreString02 = cursor.getString(1);
+        new Genre(genreString01, genreString01);
+//        genre.add((cursor.getString(0)),(cursor.getString(1));
+      }
+      while (cursor.moveToNext()) {
+        genreString01 = cursor.getString(0);
+        genreString02 = cursor.getString(1);
+        new Genre(genreString01, genreString01);
+      }
     }
   }
 }
