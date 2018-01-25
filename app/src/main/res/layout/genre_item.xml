@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="200dp">
+
+  <TextView
+    android:id="@+id/genreView"
+    android:layout_width="368dp"
+    android:layout_height="40dp"
+    android:textSize="24sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="Genre"/>
+  <TextView
+    android:id="@+id/genreDescView"
+    android:layout_width="368dp"
+    android:layout_height="144dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="4dp"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/genreView"
+    tools:text="Genre Desc"/>
+</android.support.constraint.ConstraintLayout>
