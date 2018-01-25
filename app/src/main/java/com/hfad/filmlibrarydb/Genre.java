@@ -5,7 +5,7 @@ public class Genre extends BaseActivity{
   protected String name;
   protected String description;
 
-  static Genre[] genres = {
+  protected static Genre[] genres = {
 
 //      new Genre("Боевик", "Боевики"),
 //      new Genre("Вестерн", "Вестерны"),
