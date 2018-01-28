@@ -33,8 +33,11 @@ public class ItemList extends BaseActivity{
 
   private void initItemList() {
     items = new ArrayList<>();
-    connectDBRead();
+//    connectDBRead();
     if (isConnectedRead) {
+      fillingItemList();
+    } else {
+      connectDBRead();
       fillingItemList();
     }
   }
