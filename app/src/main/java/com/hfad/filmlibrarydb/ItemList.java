@@ -10,7 +10,7 @@ public class ItemList extends BaseActivity{
 
   protected String listString01;
   protected String listString02;
-  private static ItemList ourInstance = null;
+  private static ItemList ourInstance;
   private List<Item> items;
   private Context context;
   

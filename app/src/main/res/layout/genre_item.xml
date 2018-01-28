@@ -12,7 +12,7 @@
     android:layout_height="match_parent">
 
     <TextView
-      android:id="@+id/genreView"
+      android:id="@+id/genreNameView"
       android:layout_width="384dp"
       android:layout_height="40dp"
       android:textSize="24sp"
@@ -25,14 +25,14 @@
       android:layout_width="384dp"
       android:layout_height="160dp"
       android:layout_marginTop="8dp"
-      android:layout_alignEnd="@+id/genreView"
+      android:layout_alignEnd="@+id/genreNameView"
       android:layout_alignParentBottom="true"
-      android:layout_alignRight="@+id/genreView"
+      android:layout_alignRight="@+id/genreNameView"
       android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/genreView"
+      app:layout_constraintTop_toBottomOf="@+id/genreNameView"
       tools:text="Genre Desc"/>
   </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
