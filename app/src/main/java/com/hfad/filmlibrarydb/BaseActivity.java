@@ -1,5 +1,6 @@
 package com.hfad.filmlibrarydb;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,7 +13,6 @@ public class BaseActivity extends AppCompatActivity {
   protected SQLiteOpenHelper filmsDB;
   protected SQLiteDatabase db;
   protected boolean isConnectedRead;
-  protected boolean isConnectedWrite;
 
   protected void toastCenterLong(String message) {
     Toast toastCenter = Toast.makeText(this, message, Toast.LENGTH_LONG);
@@ -26,27 +26,15 @@ public class BaseActivity extends AppCompatActivity {
     toastCenter.show();
   }
 
-  protected void connectDBRead() {
+  protected void connectDBRead(Context context) {
     try {
-      filmsDB = new FilmLibraryDatabaseHelper(this);
+      filmsDB = new FilmLibraryDatabaseHelper(context);
       db = filmsDB.getReadableDatabase();
       isConnectedRead = true;
     } catch (SQLiteException e) {
       toastCenterLong(getString(R.string.db_error));
       isConnectedRead = false;
     }
-  }
-
-  protected void connectDBWrite() {
-    try {
-      filmsDB = new FilmLibraryDatabaseHelper(this);
-      db = filmsDB.getReadableDatabase();
-      isConnectedWrite = true;
-    } catch (SQLiteException e) {
-      toastCenterLong(getString(R.string.db_error));
-      isConnectedWrite = false;
-    }
-
   }
 
 }

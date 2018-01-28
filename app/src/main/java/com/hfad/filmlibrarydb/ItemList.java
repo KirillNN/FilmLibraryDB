@@ -15,6 +15,7 @@ public class ItemList extends BaseActivity{
   private Context context;
   
   public static ItemList getInstance(Context context) {
+//    this.context = context;
     if (ourInstance == null) {
       return ourInstance = new ItemList(context);
     } else {
@@ -28,36 +29,50 @@ public class ItemList extends BaseActivity{
   
   private ItemList(Context context) {
     this.context = context;
-    initItemList();
+    initItemList(context);
   }
 
-  private void initItemList() {
-    items = new ArrayList<>();
+  private void initItemList(Context context) {
+    this.context = context;
+//    items = new ArrayList<>();
 //    connectDBRead();
-    if (isConnectedRead) {
-      fillingItemList();
-    } else {
-      connectDBRead();
-      fillingItemList();
-    }
+//    if (isConnectedRead) {
+//      fillingItemList();
+//    } else {
+//      connectDBRead();
+//      fillingItemList();
+//    }
+    fillingItemListFromDB(context);
+//    fillingItemList(context);
   }
 
-  private void fillingItemList() {
-    Cursor cursor = db.query("GENRE",
-        new String[]{"NAME", "DESCRIPTION"},
-        null, null, null, null, null);
+  private void fillingItemList(Context context) {
+    this.context = context;
+    items = new ArrayList<>();
+    items.add(new Item(context.getString(R.string.action), context.getString(R.string.action_desc)));
+  }
 
-    if (cursor.moveToFirst()) {
-      listString01 = cursor.getString(0);
-      listString02 = cursor.getString(1);
-      items.add(new Item(listString01, listString02));
+  private void fillingItemListFromDB(Context context) {
+    this.context = context;
+    items = new ArrayList<>();
+    connectDBRead(context);
+    if (isConnectedRead) {
+      Cursor cursor = db.query("GENRE",
+          new String[]{"NAME", "DESCRIPTION"},
+          null, null, null, null, null);
+
+      if (cursor.moveToFirst()) {
+        listString01 = cursor.getString(0);
+        listString02 = cursor.getString(1);
+        items.add(new Item(listString01, listString02));
+      }
+      while (cursor.moveToNext()) {
+        listString01 = cursor.getString(0);
+        listString02 = cursor.getString(1);
+        items.add(new Item(listString01, listString02));
+      }
+      cursor.close();
     }
-    while (cursor.moveToNext()) {
-      listString01 = cursor.getString(0);
-      listString02 = cursor.getString(1);
-      items.add(new Item(listString01, listString02));
-    }
-    cursor.close();
     db.close();
   }
 
