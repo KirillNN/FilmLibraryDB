@@ -10,15 +10,15 @@ public class ItemList extends BaseActivity{
 
   protected String listString01;
   protected String listString02;
-  private static ItemList ourInstrance = null;
+  private static ItemList ourInstance = null;
   private List<Item> items;
   private Context context;
   
-  public static ItemList getOurInstrance(Context context) {
-    if (ourInstrance == null) {
-      return ourInstrance = new ItemList(context);
+  public static ItemList getInstance(Context context) {
+    if (ourInstance == null) {
+      return ourInstance = new ItemList(context);
     } else {
-      return ourInstrance;
+      return ourInstance;
     }
   }
 
