@@ -37,7 +37,17 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
         + "NAME TEXT, "
         + "DESCRIPTION TEXT);");
 
+    db.execSQL("CREATE TABLE FILM ("
+        + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + "NAME TEXT, "
+        + "DESCRIPTION TEXT);");
+
     createGenreTable(db);
+  }
+
+  private void createFilmTable(SQLiteDatabase db) {
+    insertFilm(db, contextDB.getString(R.string.hero),
+        contextDB.getString(R.string.hero_desc));
   }
 
   private void createGenreTable(SQLiteDatabase db) {
@@ -85,8 +95,16 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
     db.insert("GENRE", null, genreValues);
   }
 
+  private static void insertFilm(SQLiteDatabase db, String name, String description) {
+    ContentValues filmValues = new ContentValues();
+    filmValues.put("NAME", name);
+    filmValues.put("DESCRIPTION", description);
+    db.insert("FILM", null, filmValues);
+  }
+
   private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
     db.execSQL("DROP TABLE GENRE");
+    db.execSQL("DROP TABLE FILM");
     createMyDatabase(db, oldVersion, newVersion);
   }
 
