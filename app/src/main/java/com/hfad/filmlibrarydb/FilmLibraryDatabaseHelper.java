@@ -43,11 +43,22 @@ public class FilmLibraryDatabaseHelper extends SQLiteOpenHelper {
         + "DESCRIPTION TEXT);");
 
     createGenreTable(db);
+    createFilmTable(db);
   }
 
   private void createFilmTable(SQLiteDatabase db) {
     insertFilm(db, contextDB.getString(R.string.hero),
         contextDB.getString(R.string.hero_desc));
+    insertFilm(db, contextDB.getString(R.string.it),
+        contextDB.getString(R.string.it_desc));
+    insertFilm(db, contextDB.getString(R.string.komatoz),
+        contextDB.getString(R.string.komatoz_desc));
+    insertFilm(db, contextDB.getString(R.string.light),
+        contextDB.getString(R.string.light_desc));
+    insertFilm(db, contextDB.getString(R.string.sister),
+        contextDB.getString(R.string.sister_desc));
+    insertFilm(db, contextDB.getString(R.string.time),
+        contextDB.getString(R.string.time_desc));
   }
 
   private void createGenreTable(SQLiteDatabase db) {
