@@ -6,14 +6,14 @@ import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemList extends BaseActivity{
+public class ItemList extends BaseActivity {
 
   protected String listString01;
   protected String listString02;
   private static ItemList ourInstance;
   private List<Item> items;
   private Context context;
-  
+
   public static ItemList getInstance(Context context) {
 //    this.context = context;
     if (ourInstance == null) {
@@ -26,7 +26,7 @@ public class ItemList extends BaseActivity{
   public List<Item> getItems() {
     return items;
   }
-  
+
   private ItemList(Context context) {
     this.context = context;
     initItemList(context);
@@ -49,7 +49,8 @@ public class ItemList extends BaseActivity{
   private void fillingItemList(Context context) {
     this.context = context;
     items = new ArrayList<>();
-    items.add(new Item(context.getString(R.string.action), context.getString(R.string.action_desc)));
+    items
+        .add(new Item(context.getString(R.string.action), context.getString(R.string.action_desc)));
   }
 
   private void fillingItemListFromDB(Context context) {

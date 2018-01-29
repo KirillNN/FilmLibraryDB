@@ -1,11 +1,11 @@
 package com.hfad.filmlibrarydb;
 
-public class Cinema {
+public class Film {
 
   protected String name;
   protected String description;
 
-  protected Cinema(String name, String description) {
+  protected Film(String name, String description) {
     this.name = name;
     this.description = description;
   }
