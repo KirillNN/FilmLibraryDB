@@ -19,7 +19,7 @@
       android:layout_height="match_parent"
       android:layout_marginBottom="4dp"
       android:name="com.hfad.filmlibrarydb.ItemFragment"
-      app:layout_constraintBottom_toTopOf="@+id/textView"
+      app:layout_constraintBottom_toTopOf="@+id/filmNameView"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
