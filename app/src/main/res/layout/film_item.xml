@@ -22,11 +22,11 @@
     <TextView
       android:id="@+id/filmDescView"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:text="Desc"
+      android:layout_height="192dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/filmNameView"/>
+      app:layout_constraintTop_toBottomOf="@+id/filmNameView"
+      tools:text="Desc"/>
   </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

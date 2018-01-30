@@ -41,7 +41,7 @@ public class FilmList extends BaseActivity {
     films = new ArrayList<>();
     connectDBRead(context);
     if (isConnectedRead) {
-      Cursor cursor = db.query("GENRE",
+      Cursor cursor = db.query("FILM",
           new String[]{"NAME", "DESCRIPTION"},
           null, null, null, null, null);
 

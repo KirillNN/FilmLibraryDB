@@ -32,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
       db = filmsDB.getReadableDatabase();
       isConnectedRead = true;
     } catch (SQLiteException e) {
-      toastCenterLong(getString(R.string.db_error));
+//      toastCenterLong(getString(R.string.db_error));
       isConnectedRead = false;
     }
   }
