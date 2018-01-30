@@ -75,9 +75,9 @@ public class ItemFragment extends Fragment {
 
   private class ItemViewHolder extends RecyclerView.ViewHolder {
 
-    CardView cardView;
-    TextView itemNameView;
-    TextView itemDescView;
+    private CardView cardView;
+    private TextView itemNameView;
+    private TextView itemDescView;
 
     public ItemViewHolder(View itemView) {
       super(itemView);
