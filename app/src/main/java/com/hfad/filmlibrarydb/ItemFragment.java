@@ -40,8 +40,8 @@ public class ItemFragment extends Fragment {
 
   private class ItemAdapter extends RecyclerView.Adapter<ItemViewHolder> {
 
-    Context context;
-    List<Item> items;
+    private Context context;
+    private List<Item> items;
 
     public ItemAdapter(Context context, List<Item> items) {
       this.context = context;
